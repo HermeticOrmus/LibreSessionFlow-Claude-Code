@@ -146,4 +146,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-MIT © 2026 [Diego Bodart](https://github.com/HermeticOrmus). Built under the [Gold Hat Manifesto](GOLD_HAT.md).
+MIT © 2026 [Diego Bodart](https://github.com/HermeticOrmus) — see [LICENSE](LICENSE). Built under the [Gold Hat principle](GOLD_HAT.md).
