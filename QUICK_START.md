@@ -22,6 +22,16 @@ cd ~/projects/LibreSessionFlow-Claude-Code
 
 Restart Claude Code so it picks up the plugins. `claude plugin list` shows them as enabled.
 
+### Install in Grok Build
+
+```bash
+grok plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
+grok plugin install handoff@libre-sessionflow --trust
+grok plugin install pickup@libre-sessionflow --trust
+```
+
+Or one plugin straight from its folder: `grok plugin install HermeticOrmus/LibreSessionFlow-Claude-Code#plugins/handoff --trust`. From a clone, `./setup.sh --grok` installs all ten into Grok Build. `grok plugin list` shows them. Two limits are known and tracked in [LEDGER.md](LEDGER.md): nine of the ten commands read their skill through `${CLAUDE_PLUGIN_ROOT}`, which Grok Build documents for hooks only, so those commands have not been verified in a live Grok session yet; and `grab` and `maintain` read Claude Code's own transcripts and settings, so under Grok Build they see Claude Code's sessions, not Grok's.
+
 ## 2. Do real work for ~30 minutes
 
 Open Claude Code in any project. Work on something concrete — fix a bug, refactor a function, design a feature. Generate state.
