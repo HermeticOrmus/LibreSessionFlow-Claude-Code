@@ -1,0 +1,83 @@
+{
+  "name": "libre-sessionflow",
+  "owner": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "metadata": {
+    "description": "Session lifecycle for Claude Code: hand off, pick up, capture, and distill work so every session starts where the last one ended.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "absorb",
+      "description": "Distill what a session taught (intent, decisions, domain knowledge, preferences) into memory files that every future session loads.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/absorb"
+    },
+    {
+      "name": "close",
+      "description": "End-of-session ritual: handoff when work is unfinished, memory update, session summary, and an optional notification you configure.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/close"
+    },
+    {
+      "name": "explore",
+      "description": "Map a codebase's structure (symbols with line ranges) before reading, then read only the symbols that matter, with a bundled outline script.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/explore"
+    },
+    {
+      "name": "grab",
+      "description": "Copy the latest command, URL, or full reply from the current Claude Code session straight to the system clipboard.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/grab"
+    },
+    {
+      "name": "handoff",
+      "description": "Write a HANDOFF.md at session end that captures state, diff-invisible context, verify commands, and one specific next step, indexed for /pickup.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/handoff"
+    },
+    {
+      "name": "maintain",
+      "description": "Audit a Claude Code setup (MCP health, plugin token cost, sync conflicts, settings, memory size, usage, hooks) and fix only what you approve.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/maintain"
+    },
+    {
+      "name": "meet",
+      "description": "Research a new collaborator or client once (web, your projects, your GitHub) and save a contact memory file future sessions reuse.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/meet"
+    },
+    {
+      "name": "pickup",
+      "description": "Start a session from a HANDOFF.md: find it, re-run its verify commands, load the key files, and show the next action; falls back to git history.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/pickup"
+    },
+    {
+      "name": "share-prompt",
+      "description": "Send a coworker a paste-ready prompt through your clipboard, a secret gist, your own command, or LibreWhatsApp /push.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/share-prompt"
+    },
+    {
+      "name": "todo",
+      "description": "Capture a TODO into the project's TODO.md mid-session without breaking flow, and triage the list when it grows.",
+      "version": "1.0.0",
+      "category": "developer-tools",
+      "source": "./plugins/todo"
+    }
+  ]
+}
