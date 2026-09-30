@@ -6,10 +6,16 @@
 
 ```
 /todo <text>
+/todo triage
 ```
 
-Appends to `./TODO.md` (creating if absent). Doesn't pivot Claude's attention; the captured TODO is there for later review.
+Appends to `./TODO.md` (creating if absent) under today's date, newest date on top. Doesn't pivot Claude's attention; the captured TODO is there for later review, and the session continues where it was.
 
-## Coming in v0.3
+## Contents
 
-Pattern library for TODO triage (which ones become tickets vs. which stay as TODOs vs. which become memory entries). Today this is a shell.
+- **Command**: `/todo`
+- **Skill**: `todo-capture`
+
+## Triage
+
+`/todo triage` is the pattern library for TODO triage: it proposes, per open item, whether it stays a TODO, becomes a ticket, becomes a memory entry, is already done (with the evidence), or can be dropped. Nothing changes until you approve.
