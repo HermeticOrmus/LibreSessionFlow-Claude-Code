@@ -1,0 +1,20 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Capture a TODO into the project's TODO.md mid-session without breaking flow, and triage the list when it grows.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "todo",
+    "capture",
+    "productivity",
+    "notes"
+  ]
+}

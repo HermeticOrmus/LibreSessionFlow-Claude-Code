@@ -1,0 +1,20 @@
+{
+  "name": "pickup",
+  "version": "1.0.0",
+  "description": "Start a session from a HANDOFF.md: find it, re-run its verify commands, load the key files, and show the next action; falls back to git history.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "pickup",
+    "session",
+    "resume",
+    "context"
+  ]
+}

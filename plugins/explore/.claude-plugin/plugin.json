@@ -1,0 +1,20 @@
+{
+  "name": "explore",
+  "version": "1.0.0",
+  "description": "Map a codebase's structure (symbols with line ranges) before reading, then read only the symbols that matter, with a bundled outline script.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "code-search",
+    "outline",
+    "tokens",
+    "exploration"
+  ]
+}

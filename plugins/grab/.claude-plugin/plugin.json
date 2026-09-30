@@ -1,0 +1,20 @@
+{
+  "name": "grab",
+  "version": "1.0.0",
+  "description": "Copy the latest command, URL, or full reply from the current Claude Code session straight to the system clipboard.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "clipboard",
+    "copy",
+    "transcript",
+    "productivity"
+  ]
+}

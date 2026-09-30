@@ -1,0 +1,20 @@
+{
+  "name": "absorb",
+  "version": "1.0.0",
+  "description": "Distill what a session taught (intent, decisions, domain knowledge, preferences) into memory files that every future session loads.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "memory",
+    "learning",
+    "session",
+    "distillation"
+  ]
+}
