@@ -5,11 +5,18 @@
 ## What this covers
 
 - MCP server health (auth state, tool whitelist, reachability)
-- Syncthing sync conflicts in ~/.claude/
+- Sync conflicts in ~/.claude/ (Syncthing `.sync-conflict-*`, Dropbox "conflicted copy", `.orig` and `.rej` files)
 - Skill / agent / command audit (which are unused, which are bloated)
-- Settings.json drift detection
+- Plugin always-on token cost, from `claude plugin details`
+- Settings.json drift detection (invalid JSON, heavy or risky hooks)
 - Auto-memory cap fitting (companion to claude-md-overhaul-skills)
 
-## Coming in v0.3
+## Contents
 
-Full expansion. Today this is a shell.
+- **Command**: `/maintain [mcp | plugins | conflicts | settings | memory | usage | hooks | report]`
+- **Skill**: `environment-maintenance`
+- **Script**: `bin/usage.py`, counts skill, slash command, subagent, and MCP server use across session transcripts and lists the user-level skills, commands, and agents that never show up
+
+## Safety
+
+Read-only until you approve each change. Files are moved into `~/.claude/sessionflow/trash/<date>/` (relative paths kept), never deleted. Secret-looking values are masked when configs are shown. Reports go to `~/.claude/sessionflow/reports/`.
