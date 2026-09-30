@@ -8,9 +8,19 @@
 /grab              # latest Bash tool call from THIS session
 /grab link         # latest URL Claude printed
 /grab message      # full text of the latest assistant turn
-/grab wa <alias>   # latest command from a WhatsApp chat
+/grab --count 3    # last three, joined
+/grab message --skip 2 --hr   # a draft three replies back, without its framing
+/grab --dry-run    # print instead of copying
 ```
 
-## Coming in v0.3
+Grabbing the latest command from a WhatsApp chat (`/grab wa <alias>`) lives in the [LibreWhatsApp](https://github.com/HermeticOrmus/LibreWhatsApp-Claude-Code) pack's grab plugin, which shares that pack's chat registry.
 
-Full plugin expansion + cross-platform clipboard support (xclip / wl-copy / pbcopy already in the existing skill). Today this is a shell.
+## Contents
+
+- **Command**: `/grab`
+- **Skill**: `clipboard-grab`
+- **Script**: `bin/grab.py`, standard library Python; reads this session's transcript under `${CLAUDE_CONFIG_DIR:-~/.claude}/projects/`
+
+## Clipboard
+
+Cross-platform: `wl-copy` (Wayland), `xclip` or `xsel` (X11), `pbcopy` (macOS), `clip.exe` (WSL), or your own command in `GRAB_CLIPBOARD_CMD`. With no clipboard tool (for example over ssh without a display) the script prints the payload and says the copy did not happen.
