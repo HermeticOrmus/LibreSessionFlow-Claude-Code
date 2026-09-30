@@ -165,6 +165,13 @@ The discipline as a single CLAUDE.md drop-in: [`session-handoff-skills`](https:/
 
 Starred this? Tell us what worked and what is missing: [open a feedback issue](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=feedback.yml). Every piece of feedback gets an answer, and changes that come from it are credited in the release notes.
 
+## Contribute
+
+- Pick up the next piece of work from the [Menu](pantry/MENU.md): each item has a Done-when anyone can check, and the research behind it is in [`pantry/`](pantry/).
+- New here? Start with the [good first issues](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/contribute).
+- Claude picked the wrong plugin? File a [routing miss](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=routing-miss.yml). Want a new plugin? Open a [plugin proposal](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=plugin-proposal.yml). Anything else goes in a [feedback issue](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=feedback.yml).
+- Show what you built in [Discussions](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/discussions). The full guide is in [CONTRIBUTING.md](CONTRIBUTING.md#ways-to-contribute).
+
 ## Contributing
 
 PRs welcome — especially: more handoff templates for specific scenarios, examples of pickup flows for multi-machine work, integration with team chat tools beyond what's covered.
