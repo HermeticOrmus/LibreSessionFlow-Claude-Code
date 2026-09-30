@@ -1,7 +1,6 @@
 ---
 description: Send a paste-ready prompt to a coworker or yourself (clipboard, gist, your own command, or /push)
 argument-hint: "@<handle> <prompt body>"
-disable-model-invocation: true
 ---
 
 # /share-prompt

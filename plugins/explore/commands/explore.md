@@ -1,7 +1,6 @@
 ---
 description: Map a codebase's structure for a topic, then read only the symbols that matter
 argument-hint: "<topic or symbol> [path]"
-disable-model-invocation: true
 ---
 
 # /explore

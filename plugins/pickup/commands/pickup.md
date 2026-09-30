@@ -1,7 +1,6 @@
 ---
 description: Restore session context from a HANDOFF.md, from git history, or from a chat thread
 argument-hint: "[path | project | chat] [all]"
-disable-model-invocation: true
 ---
 
 # /pickup
