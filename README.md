@@ -72,11 +72,30 @@ Five-stage cycle, instrumented:
 | **absorb** | `/absorb` | Distill what the session taught into persistent memory. Promotes ephemeral session learning to durable cross-session knowledge. |
 | **maintain** | `/maintain` | Environment hygiene: MCP health checks, sync-conflict detection, tool-usage analysis, periodic skill audit. |
 
-⭐ = depth-complete plugin (the rest are shell-improved; depth scheduled v0.3-v0.5)
+⭐ = the flagship plugin. Since 1.0.0 every plugin ships a working slash command and skill (10 commands, 10 skills, 1 agent, 3 helper scripts); before that, nine of them were README-only.
 
 ---
 
 ## Quick start
+
+### Install from Claude Code
+
+```
+/plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
+/plugin install handoff@libre-sessionflow
+/plugin install pickup@libre-sessionflow
+```
+
+Install any of the ten the same way (`absorb`, `close`, `explore`, `grab`, `handoff`, `maintain`, `meet`, `pickup`, `share-prompt`, `todo`). From a terminal, the equivalent is:
+
+```bash
+claude plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
+claude plugin install handoff@libre-sessionflow
+```
+
+Or clone the repo and let `setup.sh` register the marketplace and install every plugin (`./setup.sh --list` shows them, `./setup.sh --only handoff,pickup` installs a subset, `./setup.sh --uninstall` removes them). This pack has no hooks plugin: nothing runs unless you invoke it.
+
+### From a clone
 
 ```bash
 git clone https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code.git ~/projects/LibreSessionFlow-Claude-Code
@@ -97,6 +116,10 @@ That writes HANDOFF.md. Open a new session tomorrow:
 ```
 
 It reads HANDOFF.md and restores context. See [QUICK_START.md](QUICK_START.md) for the full first-week walkthrough.
+
+### Settings (optional)
+
+Everything works with no setup. To change where memory, handoff indexes, and session summaries go, where `/close` sends its summary, or who `/share-prompt` can reach, copy [`sessionflow.example.json`](sessionflow.example.json) to `~/.claude/sessionflow.json` and keep only the keys you need. Environment variables (`SESSIONFLOW_HOME`, `SESSIONFLOW_MEMORY_DIR`, `SESSIONFLOW_NOTIFY_CMD`, `SESSIONFLOW_CONFIG`) override the file. The file stays on your machine.
 
 ---
 
@@ -132,11 +155,15 @@ The discipline as a single CLAUDE.md drop-in: [`session-handoff-skills`](https:/
 
 ## Compatibility
 
-- **Claude Code**: 1.x+
+- **Claude Code**: 2.1 or later (plugin marketplaces; tested on 2.1.285)
 - **Cursor**: skill subset works via `.cursor/rules/`
 - **OS**: Linux + macOS (Windows via WSL2 should work but untested)
 
 ---
+
+## Feedback
+
+Starred this? Tell us what worked and what is missing: [open a feedback issue](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=feedback.yml). Every piece of feedback gets an answer, and changes that come from it are credited in the release notes.
 
 ## Contributing
 
