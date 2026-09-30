@@ -6,7 +6,9 @@
 
 - **Agent**: `handoff-engineer` — writes HANDOFF.md with the right level of detail for future-you
 - **Command**: `/handoff` — orchestrates the capture + saves to project root or `~/dev/<task>/`
-- **Skill**: pattern library for what belongs in a handoff vs what's git log territory
+- **Skill**: `handoff-patterns`, the pattern library for what belongs in a handoff vs what's git log territory
+
+Every handoff is also indexed in `~/.claude/sessionflow/handoffs/INDEX.md` (or under `SESSIONFLOW_HOME`), so `/pickup` finds it from any directory, and its resume prompt is put on your clipboard, ready to paste into the next session.
 
 ## Key capabilities
 
@@ -20,7 +22,7 @@
 ## When to use
 
 - End of every session > 30 minutes with incomplete work
-- Before machine switch (Moon → Sun, etc.)
+- Before machine switch (laptop to desktop, etc.)
 - Before context-clear or /compact
 - Before sleep on a multi-day project
 - Before interruption > 4 hours

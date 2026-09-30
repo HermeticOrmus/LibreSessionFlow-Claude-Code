@@ -1,4 +1,14 @@
+---
+name: handoff-patterns
+description: "Pattern library and procedure for writing a HANDOFF.md at the end of a session: what belongs in it versus the git log, PR, or memory, how much detail each resume gap needs, the anti-patterns (status-report tone, diff restatement, vague next steps, missing verify commands), and ready templates. Use when ending a session with unfinished work, before a context clear or machine switch, when handing work to a teammate, or when reviewing a handoff."
+user-invocable: false
+---
+
 # Handoff pattern library
+
+## Writing one
+
+To write a handoff, follow the procedure in `${CLAUDE_PLUGIN_ROOT}/commands/handoff.md` (the same steps `/handoff` runs): establish the resume gap, choose the location, draft from the template, show the draft, save it, index it for `/pickup`, and put the resume prompt on the clipboard. Use this library to decide what goes in and how much.
 
 ## What belongs in HANDOFF.md
 
@@ -128,7 +138,7 @@ What I'd appreciate you doing FIRST:
 2. Skim the "Key context" section
 3. Run the verify commands to make sure I didn't leave a half-broken state
 
-Ping me on WhatsApp if anything is unclear. I'll have phone access Tuesday evening Panama time.
+Ping me on chat if anything is unclear. I'll have phone access Tuesday evening, my time zone.
 
 Branch: feature/token-refresh-service (pushed)
 PR: #412 (draft)

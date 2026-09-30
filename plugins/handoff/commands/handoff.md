@@ -1,3 +1,9 @@
+---
+description: Write a HANDOFF.md that lets the next session resume this work quickly
+argument-hint: "[resume gap, destination path, or notes]"
+disable-model-invocation: true
+---
+
 # Session handoff
 
 You are a handoff-engineer agent. Capture session state into a HANDOFF.md that makes the next session resumable in under 5 minutes of reading.
@@ -28,7 +34,10 @@ Default options, in order of preference:
 
 1. **Project root**: `./HANDOFF.md` (most common; git-tracked)
 2. **Task-specific**: `~/dev/[task]/HANDOFF.md` (for multi-task work)
-3. **Custom path**: user-specified
+3. **Multi-project or multi-machine session** (edits landed in two or more projects, or on other machines over ssh, with no single home): `<home>/handoffs/HANDOFF-<slug>-<YYYY-MM-DD>.md`, where `<home>` is `SESSIONFLOW_HOME`, else `home` in `~/.claude/sessionflow.json`, else `~/.claude/sessionflow`
+4. **Custom path**: user-specified
+
+If a HANDOFF.md already exists at the chosen path for a different task, rename it to `HANDOFF.md.bak.<YYYYMMDD-HHMMSS>` before writing. Never overwrite another task's handoff silently.
 
 ### 3. Draft the HANDOFF
 
@@ -74,6 +83,13 @@ grep -c "TODO(handoff)" src/           # should be 0
 
 ## Next step
 [ONE specific action when resuming. File path, line number, what to do.]
+
+## Resume prompt
+---
+Continuing work on [task slug].
+Read HANDOFF.md at [ABSOLUTE PATH; never assume the next session's working directory] for full context.
+Next action: [the Next step above, with absolute paths]
+---
 ```
 
 ### 4. Show the draft
@@ -86,11 +102,31 @@ Write to the chosen path. Mention path in your final response.
 
 If on a git-tracked project, suggest staging the HANDOFF for commit. Don't commit automatically; let the user decide.
 
+### 5b. Index it for /pickup
+
+Upsert one row in `<home>/handoffs/INDEX.md` so `/pickup` can find this handoff without searching the disk. One row per handoff path; a new handoff for the same path replaces the old row. Newest row on top.
+
+```bash
+HOME_DIR="${SESSIONFLOW_HOME:-$HOME/.claude/sessionflow}"   # or the "home" setting
+INDEX="$HOME_DIR/handoffs/INDEX.md"
+ROW="| $(date '+%Y-%m-%d %H:%M') | <slug> | <topic> | \`<absolute path to HANDOFF.md>\` | open |"
+mkdir -p "$HOME_DIR/handoffs"
+[ -f "$INDEX" ] || printf '%s\n' '# Handoff index' '' '| When | Slug | Topic | Path | Status |' '|------|------|------|------|--------|' > "$INDEX"
+grep -vF '`<absolute path to HANDOFF.md>`' "$INDEX" > "$INDEX.tmp"            # drop the old row for this path
+awk -v row="$ROW" '{print} /^\|------\|/ && !done {print row; done=1}' "$INDEX.tmp" > "$INDEX" && rm "$INDEX.tmp"
+```
+
+`/pickup` flips the status from `open` to `picked-up` once it has loaded the handoff.
+
+### 5c. Put the resume prompt on the clipboard
+
+The resume prompt exists to be pasted into a fresh session. Write its body (the lines between the `---` fences, without the fences) to a temp file and pipe that file to the first clipboard tool that exists: `wl-copy`, `xclip -selection clipboard`, `xsel --clipboard --input`, `pbcopy`, or `clip.exe`. Read the clipboard back and confirm it starts with `Continuing work on` before saying it was copied. No clipboard tool, or an ssh session without a display: print the prompt in a fenced block instead, and say so.
+
 ### 6. Companion follow-up
 
 After saving, suggest the user:
 
-- Run `/close` if they want the full end-of-session ritual (handoff + memory update + WhatsApp notify)
+- Run `/close` if they want the full end-of-session ritual (handoff + memory update + optional notification)
 - Or just exit if just the handoff is needed
 
 ## Anti-patterns to flag
@@ -119,7 +155,7 @@ Where to ping me if questions: [WhatsApp/Slack/email]
 
 ### Multi-machine handoff
 
-If switching machines (Moon → Sun, Sun → Mercury), add:
+If switching machines (laptop to desktop, desktop to a build server), add:
 
 ```markdown
 ## Machine notes
@@ -146,4 +182,4 @@ If mid-debug, the handoff should NOT contain a fix — it should contain the hyp
 
 ## Output format
 
-The HANDOFF.md saved to the chosen path. Print the path and a brief one-line summary in your response.
+The HANDOFF.md saved to the chosen path. Print the path and a brief one-line summary in your response, then say whether the resume prompt is on the clipboard and that the handoff is indexed. Suggest `/compact` to keep going in this session, or `/clear` to start fresh; in the new session, `/pickup` (or pasting the resume prompt) restores the context.
