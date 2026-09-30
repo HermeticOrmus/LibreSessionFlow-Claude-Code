@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.0.0] - 2026-09-30
+
+The pack becomes installable and every plugin does what its README says. Before this release only `handoff` had working files; the other nine were README-only, and the old `setup.sh` copied folders that Claude Code never loaded.
+
+### Added
+
+- Plugin marketplace `libre-sessionflow` (`.claude-plugin/marketplace.json`) and a `plugin.json` for each of the ten plugins. Install with `/plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code`, then `/plugin install <name>@libre-sessionflow`.
+- A working slash command and skill for each of the nine plugins that had none:
+  - `pickup`: finds the handoff through an index, re-runs its verify commands and marks each item still done, drifted, or not checkable, loads the key files, and presents one next action; cold mode rebuilds context from git history; conversation mode resumes a chat through LibreWhatsApp; `all` adds your open PRs and issues.
+  - `close`: session audit, handoff when work is unfinished, memory update, a session summary kept outside the repo, an offer to commit finished work, and an optional notification.
+  - `absorb`: classifies what the session taught, merges it with existing memory, writes topic files and a one-line-per-entry `MEMORY.md` index, and proposes CLAUDE.md lines for instructions.
+  - `explore`: search, outline, and unfold, using structural tools when the session has them and the bundled `bin/outline.py` otherwise (exact for Python, pattern-based for thirteen other languages).
+  - `grab`: `bin/grab.py` copies the latest command, URL, or reply from the current session transcript to the clipboard on Wayland, X11, macOS, or WSL.
+  - `todo`: verbatim capture under today's date, plus `/todo triage`, which proposes a destination for each open item and changes nothing without approval.
+  - `share-prompt`: paste-ready prompt delivery through the clipboard, a secret gist, your own command, or LibreWhatsApp `/push`, with a credential check.
+  - `meet`: one-pass research of a person (web, your projects, your GitHub account) saved as a contact memory file, with privacy rules.
+  - `maintain`: read-only scan of MCP health, plugin token cost, sync conflicts, settings validity, memory size, hooks, and usage (`bin/usage.py`), then fixes one approved change at a time, moving files to a dated trash folder instead of deleting.
+- `handoff` indexes every handoff in `~/.claude/sessionflow/handoffs/INDEX.md` for `/pickup`, adds a resume prompt section, copies the resume prompt to the clipboard, backs up another task's HANDOFF.md before replacing it, and offers a location for multi-project sessions.
+- `sessionflow.example.json`: optional settings (memory folder, SessionFlow home, notification command or `/push` target, share-prompt recipients, search paths, remote machines for pickup). Every key has a default that works with no setup; environment variables override the file.
+- CI workflow that validates the marketplace and every plugin and installs them into a clean config.
+- Feedback issue template.
+
+### Changed
+
+- `setup.sh` now registers the marketplace and installs through the Claude Code CLI (`--list`, `--only`, `--scope`, `--uninstall`). `--plugins-dir` is accepted and ignored with a note.
+- The handoff skill is now `handoff-patterns` (moved from `skills/handoff.md`), so it no longer shares a name with the `/handoff` command.
+- The `handoff-engineer` agent uses the session's model (`model: inherit`) instead of pinning one.
+- Each plugin shows one entry in the slash menu: commands are the user entry point and skills are what Claude loads on its own.
+- Docs: install steps, troubleshooting, the plugin authoring layout, and plugin READMEs describe what now ships.
+
+### Fixed
+
+- Plugins installed with the old `setup.sh` were never loaded by Claude Code. Remove any `~/.claude/plugins/libre-sessionflow-*` copies and install through the marketplace.
+- `claude --clear` in the docs is now `/clear`, which is the actual command.
+- Machine-specific examples in the handoff docs and the intermediate learning path are now generic.
+
 ## [0.1.0] — 2026-05-23
 
 Initial release. Consolidates the session lifecycle that was scattered across multiple ormus-* repos into a single Libre umbrella.
