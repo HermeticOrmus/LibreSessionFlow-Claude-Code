@@ -2,7 +2,7 @@
 
 ## Multi-machine handoff
 
-You work on Moon during the day, switch to Sun for evening sessions, sometimes Mercury for compute. Each machine has its own state. The handoff needs to bridge them.
+You work on a laptop during the day, switch to a desktop for evening sessions, sometimes a build server for heavy compute. Each machine has its own state. The handoff needs to bridge them.
 
 Add to HANDOFF.md:
 
@@ -11,7 +11,7 @@ Add to HANDOFF.md:
 - Branch pushed: yes
 - Local-only files needing sync: [list]
 - Machine-specific config: [if any]
-- Verified working on: Moon
+- Verified working on: laptop
 ```
 
 The pickup on the other machine starts with: pull latest, run sync, verify branch matches.
@@ -26,7 +26,9 @@ Use `/absorb` weekly. It surfaces what's been showing up in HANDOFFs and asks if
 
 If you have 4 active tasks, you have 4 HANDOFF.md files. One per task. Stored at `~/dev/<task>/HANDOFF.md`.
 
-`/pickup <task-slug>` picks up the right one. Without an argument, it lists open tasks.
+`/pickup <task-slug>` picks up the right one through the handoff index. Without an argument, it takes the newest open handoff, and asks when several match.
+
+For work that spans machines, `pickup.remotes` in `~/.claude/sessionflow.json` lets `/pickup <prefix> <project>` search and read a project on another machine over ssh.
 
 ## Re-handoff during a session
 

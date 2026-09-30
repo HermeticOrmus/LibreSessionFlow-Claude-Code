@@ -4,13 +4,23 @@ Twenty minutes to your first handoff + pickup cycle.
 
 ## 1. Install
 
+Inside Claude Code:
+
+```
+/plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
+/plugin install handoff@libre-sessionflow
+/plugin install pickup@libre-sessionflow
+```
+
+Or from a clone, which installs all ten plugins through the Claude Code CLI:
+
 ```bash
 git clone https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code.git ~/projects/LibreSessionFlow-Claude-Code
 cd ~/projects/LibreSessionFlow-Claude-Code
 ./setup.sh
 ```
 
-Restart Claude Code so it picks up the plugins.
+Restart Claude Code so it picks up the plugins. `claude plugin list` shows them as enabled.
 
 ## 2. Do real work for ~30 minutes
 
@@ -28,12 +38,13 @@ The agent will:
 - Draft a HANDOFF.md with the right detail level
 - Show the draft for review
 - Save to `./HANDOFF.md` (or wherever you specify)
+- Index it so `/pickup` can find it from any directory, and put a resume prompt on your clipboard
 
 Read the draft. Add anything missing. Save.
 
 ## 4. End the session
 
-Either `claude --clear` (clears context), exit the terminal, switch machines, sleep — whatever interruption you have.
+Either `/clear` (clears context), exit the terminal, switch machines, sleep: whatever interruption you have.
 
 ## 5. Resume — run /pickup
 
@@ -58,7 +69,7 @@ Once a week or after a substantial chunk of work:
 /absorb
 ```
 
-Promotes things you've learned from across multiple sessions into persistent project memory at `~/.claude/projects/`. The HANDOFF was for THIS task; absorb is for cross-task learning that should outlive this task.
+Promotes things you've learned from across multiple sessions into persistent project memory (by default the project's auto memory folder under `~/.claude/projects/`; see `sessionflow.example.json` to change it). The HANDOFF was for THIS task; absorb is for cross-task learning that should outlive this task.
 
 ## 7. Periodically — run /maintain
 
