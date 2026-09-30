@@ -1,0 +1,52 @@
+{
+  "_comment": "Optional settings for LibreSessionFlow. Copy this file to ~/.claude/sessionflow.json (or point SESSIONFLOW_CONFIG at another path) and keep only the keys you want to change. Every key has a default that works with no setup. An environment variable, where one is listed, wins over this file. The file stays on your machine; never commit it.",
+
+  "home": "~/.claude/sessionflow",
+  "_note_home": "Where the plugins keep their own files: the handoff index, session summaries, maintain reports. Env: SESSIONFLOW_HOME.",
+
+  "memory_dir": "",
+  "_note_memory_dir": "Where /absorb, /close, and /meet write durable memory. Empty means: the Claude Code auto memory folder of the current project when auto memory is on, otherwise <project root>/.claude/memory/. Env: SESSIONFLOW_MEMORY_DIR.",
+
+  "notify": {
+    "command": "",
+    "_note_command": "Optional shell command that /close runs with the session summary on stdin. Empty means no notification: the summary is printed and nothing is sent. Env: SESSIONFLOW_NOTIFY_CMD.",
+    "_examples": [
+      "cat >> ~/session-log.md",
+      "curl -s --data-binary @- https://ntfy.sh/<your-private-topic>",
+      "jq -Rs '{text: .}' | curl -s -X POST -H 'Content-Type: application/json' --data @- \"$SLACK_WEBHOOK_URL\""
+    ],
+    "push_target": "",
+    "_note_push_target": "Alternative to command, for people who also run the LibreWhatsApp pack: a /push target such as \"wa me\". /close then drafts the summary through /push, which previews it and waits for your confirmation before sending."
+  },
+
+  "share_prompt": {
+    "default_transport": "clipboard",
+    "_note_transports": "clipboard (default, no setup), gist (secret GitHub gist through gh), command (your shell command reads the formatted message on stdin), push (LibreWhatsApp /push, preview first).",
+    "recipients": {
+      "me": { "transport": "clipboard" },
+      "teammate": { "transport": "push", "target": "wa teammate" },
+      "reviewers": { "transport": "gist" },
+      "team-channel": { "transport": "command", "command": "jq -Rs '{text: .}' | curl -s -X POST -H 'Content-Type: application/json' --data @- \"$TEAM_WEBHOOK_URL\"" }
+    }
+  },
+
+  "meet": {
+    "github_owner": "",
+    "_note_github_owner": "GitHub user or org searched for prior work with a person. Empty means the account gh is logged in as.",
+    "search_paths": ["~/projects"],
+    "_note_search_paths": "Folders searched for earlier mentions of a person. The current project root is always searched."
+  },
+
+  "pickup": {
+    "search_paths": ["~/projects"],
+    "_note_search_paths": "Folders searched for a project by name when /pickup gets a name instead of a path.",
+    "remotes": {
+      "_example_prefix": { "ssh": "build-box", "roots": ["~/projects"] }
+    },
+    "_note_remotes": "Optional. When the first word of /pickup matches a prefix here, the project is searched and read over ssh on that host.",
+    "chats": {
+      "_example_project": ["wa team"]
+    },
+    "_note_chats": "Optional. Chats that /pickup <project> all also reads, through LibreWhatsApp /pull, when that pack is installed."
+  }
+}
