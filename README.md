@@ -95,6 +95,24 @@ claude plugin install handoff@libre-sessionflow
 
 Or clone the repo and let `setup.sh` register the marketplace and install every plugin (`./setup.sh --list` shows them, `./setup.sh --only handoff,pickup` installs a subset, `./setup.sh --uninstall` removes them). This pack has no hooks plugin: nothing runs unless you invoke it.
 
+### Install in Grok Build
+
+Grok Build reads the same plugin folders. Add the marketplace, then install any of the ten by name:
+
+```bash
+grok plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
+grok plugin install handoff@libre-sessionflow --trust
+grok plugin install pickup@libre-sessionflow --trust
+```
+
+Grok asks you to trust a plugin before it installs it; `--trust` is that answer. To install one plugin straight from its folder, without the marketplace:
+
+```bash
+grok plugin install HermeticOrmus/LibreSessionFlow-Claude-Code#plugins/handoff --trust
+```
+
+From a clone, `./setup.sh --grok` installs all ten into Grok Build, with the same `--only`, `--list`, and `--uninstall` options. Two limits are known and tracked in [LEDGER.md](LEDGER.md): nine of the ten commands read their skill through `${CLAUDE_PLUGIN_ROOT}`, which Grok Build documents for hooks only, so those commands have not been verified in a live Grok session yet; and `grab` and `maintain` read Claude Code's own transcripts and settings, so under Grok Build they see Claude Code's sessions, not Grok's.
+
 ### From a clone
 
 ```bash
@@ -167,6 +185,7 @@ Starred this? Tell us what worked and what is missing: [open a feedback issue](h
 
 ## Contribute
 
+- Cracks we found and sealed: [LEDGER.md](LEDGER.md). The open rows are work anyone can pick up.
 - Pick up the next piece of work from the [Menu](pantry/MENU.md): each item has a Done-when anyone can check, and the research behind it is in [`pantry/`](pantry/).
 - New here? Start with the [good first issues](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/contribute).
 - Claude picked the wrong plugin? File a [routing miss](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=routing-miss.yml). Want a new plugin? Open a [plugin proposal](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=plugin-proposal.yml). Anything else goes in a [feedback issue](https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code/issues/new?template=feedback.yml).
