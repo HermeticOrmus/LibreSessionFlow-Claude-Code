@@ -1,0 +1,20 @@
+{
+  "name": "handoff",
+  "version": "1.0.0",
+  "description": "Write a HANDOFF.md at session end that captures state, diff-invisible context, verify commands, and one specific next step, indexed for /pickup.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "handoff",
+    "session",
+    "continuity",
+    "context"
+  ]
+}

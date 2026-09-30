@@ -1,0 +1,20 @@
+{
+  "name": "meet",
+  "version": "1.0.0",
+  "description": "Research a new collaborator or client once (web, your projects, your GitHub) and save a contact memory file future sessions reuse.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "contacts",
+    "research",
+    "memory",
+    "onboarding"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "close",
+  "version": "1.0.0",
+  "description": "End-of-session ritual: handoff when work is unfinished, memory update, session summary, and an optional notification you configure.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "session",
+    "ritual",
+    "summary",
+    "notification"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "maintain",
+  "version": "1.0.0",
+  "description": "Audit a Claude Code setup (MCP health, plugin token cost, sync conflicts, settings, memory size, usage, hooks) and fix only what you approve.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "maintenance",
+    "mcp",
+    "hygiene",
+    "audit"
+  ]
+}

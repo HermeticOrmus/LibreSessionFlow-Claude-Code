@@ -1,0 +1,20 @@
+{
+  "name": "share-prompt",
+  "version": "1.0.0",
+  "description": "Send a coworker a paste-ready prompt through your clipboard, a secret gist, your own command, or LibreWhatsApp /push.",
+  "author": {
+    "name": "Diego Bodart",
+    "url": "https://github.com/HermeticOrmus"
+  },
+  "homepage": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "repository": "https://github.com/HermeticOrmus/LibreSessionFlow-Claude-Code",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "sessionflow",
+    "prompts",
+    "sharing",
+    "collaboration",
+    "clipboard"
+  ]
+}
