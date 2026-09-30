@@ -1,7 +1,6 @@
 ---
 description: Audit the Claude Code setup (MCP health, plugins, sync conflicts, settings, memory size, usage, hooks) and fix only what you approve
 argument-hint: "[mcp | plugins | conflicts | settings | memory | usage | hooks | report]"
-disable-model-invocation: true
 ---
 
 # /maintain

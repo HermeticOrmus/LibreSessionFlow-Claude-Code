@@ -1,7 +1,6 @@
 ---
 description: Distill what this session taught into persistent memory files
 argument-hint: "[@project:<name>] [@dry]"
-disable-model-invocation: true
 ---
 
 # /absorb

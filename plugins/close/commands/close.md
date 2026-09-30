@@ -1,6 +1,5 @@
 ---
 description: Run the end-of-session ritual (handoff, memory, summary, optional notification) and end the session
-disable-model-invocation: true
 ---
 
 # /close

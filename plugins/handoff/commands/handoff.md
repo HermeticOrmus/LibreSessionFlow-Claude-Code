@@ -1,7 +1,6 @@
 ---
 description: Write a HANDOFF.md that lets the next session resume this work quickly
 argument-hint: "[resume gap, destination path, or notes]"
-disable-model-invocation: true
 ---
 
 # Session handoff

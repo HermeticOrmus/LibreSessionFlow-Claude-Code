@@ -1,7 +1,6 @@
 ---
 description: Copy the latest command, URL, or reply from this session to the clipboard
 argument-hint: "[session|link|message] [--count N] [--skip N] [--hr] [--dry-run]"
-disable-model-invocation: true
 allowed-tools: Bash(python3 ${CLAUDE_PLUGIN_ROOT}/bin/grab.py:*)
 ---
 

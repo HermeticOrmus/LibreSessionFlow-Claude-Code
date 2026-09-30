@@ -35,6 +35,6 @@ plugins/<name>/
   README.md
 ```
 
-Commands are the user entry point (`disable-model-invocation: true`) and read their skill by path; skills carry the method and are what Claude picks up on its own (`user-invocable: false`, so each plugin shows one entry in the slash menu). Give the skill a different name from the command. Add the plugin to `.claude-plugin/marketplace.json` with the same description as its `plugin.json`, then run `claude plugin validate .` and `claude plugin validate plugins/<name>`.
+Commands are the user entry point and read their skill by path; skills carry the method and are what Claude picks up on its own (`user-invocable: false`, so each plugin shows one entry in the slash menu). Give the skill a different name from the command: two components with the same name collide. Leave commands model-invocable, so another skill can say "run /handoff" and Claude can follow it. Add the plugin to `.claude-plugin/marketplace.json` with the same description as its `plugin.json`, then run `claude plugin validate .` and `claude plugin validate plugins/<name>`.
 
 Settings that depend on a person's own setup (where memory lives, where notifications go) belong in `sessionflow.example.json` with a default that works with no setup, never hard-coded. See `plugins/handoff/` for the reference plugin.

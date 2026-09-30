@@ -1,7 +1,6 @@
 ---
 description: Research a person once and save a contact memory file (web, local projects, your GitHub)
 argument-hint: "<full name> [context hint]"
-disable-model-invocation: true
 ---
 
 # /meet
