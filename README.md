@@ -101,8 +101,8 @@ Grok Build reads the same plugin folders. Add the marketplace, then install any 
 
 ```bash
 grok plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
-grok plugin install handoff@libre-sessionflow --trust
-grok plugin install pickup@libre-sessionflow --trust
+grok plugin install handoff@LibreSessionFlow-Claude-Code --trust
+grok plugin install pickup@LibreSessionFlow-Claude-Code --trust
 ```
 
 Grok asks you to trust a plugin before it installs it; `--trust` is that answer. To install one plugin straight from its folder, without the marketplace:
