@@ -26,8 +26,8 @@ Restart Claude Code so it picks up the plugins. `claude plugin list` shows them 
 
 ```bash
 grok plugin marketplace add HermeticOrmus/LibreSessionFlow-Claude-Code
-grok plugin install handoff@libre-sessionflow --trust
-grok plugin install pickup@libre-sessionflow --trust
+grok plugin install handoff@LibreSessionFlow-Claude-Code --trust
+grok plugin install pickup@LibreSessionFlow-Claude-Code --trust
 ```
 
 Or one plugin straight from its folder: `grok plugin install HermeticOrmus/LibreSessionFlow-Claude-Code#plugins/handoff --trust`. From a clone, `./setup.sh --grok` installs all ten into Grok Build. `grok plugin list` shows them. Two limits are known and tracked in [LEDGER.md](LEDGER.md): nine of the ten commands read their skill through `${CLAUDE_PLUGIN_ROOT}`, which Grok Build documents for hooks only, so those commands have not been verified in a live Grok session yet; and `grab` and `maintain` read Claude Code's own transcripts and settings, so under Grok Build they see Claude Code's sessions, not Grok's.
