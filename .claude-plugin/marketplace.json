@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Session lifecycle for Claude Code: hand off, pick up, capture, and distill work so every session starts where the last one ended.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
