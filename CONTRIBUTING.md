@@ -58,7 +58,7 @@ claude plugin install <name>@libre-sessionflow
 claude plugin details <name>@libre-sessionflow
 ```
 
-CI runs the same checks on every pull request (the marketplace, every plugin, and a clean-config install of all ten). A second `grok` job checks that `.grok-plugin/marketplace.json` matches the Claude manifest, validates every plugin with `grok plugin validate`, and installs all ten into a clean Grok Build home; after you change `.claude-plugin/marketplace.json`, run `python3 scripts/sync-grok-manifest.py` and commit the file it writes. If this is your first contribution, the CI run waits until a maintainer approves it.
+CI (`.github/workflows/check.yml`, running `bash scripts/check.sh`) runs the same checks on every pull request (the marketplace, every plugin, and a clean-config install of all ten). The same script also checks that `.grok-plugin/marketplace.json` matches the Claude manifest, validates every plugin with `grok plugin validate`, and installs all ten into a clean Grok Build home; after you change `.claude-plugin/marketplace.json`, run `python3 scripts/sync-grok-manifest.py` and commit the file it writes. If this is your first contribution, the CI run waits until a maintainer approves it.
 
 ## Welcome
 
